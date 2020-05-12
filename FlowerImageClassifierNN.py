@@ -13,6 +13,16 @@ class FlowerClassifierCNNModel(nn.Module):
         self.conv2 = nn.Conv2d(in_channels=12, out_channels=24, kernel_size=3, stride=1, padding=1)
         self.relu2 = nn.ReLU()
 
+        #
+        """
+        self.maxpool2 = nn.MaxPool2d(kernel_size=2)
+
+        self.conv3 = nn.Conv2d(in_channels=24, out_channels=48, kernel_size=3, stride=1, padding=1)
+        self.relu3 = nn.ReLU()
+        """
+        #
+
+        # self.lf = nn.Linear(in_features=16 * 16 * 48, out_features=num_classes)
         self.lf = nn.Linear(in_features=32 * 32 * 24, out_features=num_classes)
 
     def forward(self, input):
@@ -24,6 +34,15 @@ class FlowerClassifierCNNModel(nn.Module):
         output = self.conv2(output)
         output = self.relu2(output)
 
+        #
+        """
+        output = self.maxpool2(output)
+        output = self.conv3(output)
+        output = self.relu3(output)
+        """
+        #
+
+        # output = output.view(-1, 16 * 16 * 48)
         output = output.view(-1, 32 * 32 * 24)
 
         output = self.lf(output)

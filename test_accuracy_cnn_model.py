@@ -12,7 +12,7 @@ def test_accuracy():
         _, prediction = torch.max(test_outputs.data, 1)
         test_acc_count += torch.sum(prediction == test_labels.data).item()
     test_accuracy = test_acc_count / len(test_dataset)
-    print(test_accuracy)
+    return test_accuracy
 
 # test_accuracy = test_acc_count / len(test_dataset)
 # print(test_accuracy)

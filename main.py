@@ -4,10 +4,9 @@ import image_prediction_using_model
 from tkinter import filedialog
 from tkinter import *
 
-
 def main():
     print("Training model...")
-    # pytorch_training_cnn_model.train_and_build(200)
+    pytorch_training_cnn_model.train_and_build(200)
     print("Model finished training.")
     window = Tk()
     window.resizable(False, False)

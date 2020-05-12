@@ -13,7 +13,7 @@ transformations = transforms.Compose([
 ])
 
 total_dataset = datasets.ImageFolder("flowers", transform=transformations)
-dataset_loader = DataLoader(dataset=total_dataset, batch_size=100)
+dataset_loader = DataLoader(dataset=total_dataset, batch_size=1000)
 items = iter(dataset_loader)
 image, label = items.next()
 
